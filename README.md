@@ -1,6 +1,7 @@
 # Goblok
 
 [![GoDoc](https://godoc.org/github.com/drizki/goblok?status.png)](https://godoc.org/github.com/drizki/goblok)
+![Go CI](https://github.com/drizki/goblok/actions/workflows/go.yml/badge.svg)
 
 Goblok is a Go library designed for filtering and analyzing profane words in Bahasa Indonesia. It provides functionalities to filter out profane words, add or remove words from the dictionary, and analyze text to detect profane content.
 
