@@ -31,10 +31,10 @@ func New(dictionary ...[]string) *Goblok {
 }
 
 // Add adds a new profane word to the dictionary.
-func (goblok *Goblok) Add(word string) string { 
+func (goblok *Goblok) Add(word string) string {
 	if word == "" {
 		return ""
-	} 
+	}
 	for _, w := range goblok.ProfaneWords {
 		if w == word {
 			return ""
@@ -46,10 +46,10 @@ func (goblok *Goblok) Add(word string) string {
 }
 
 // Remove removes a profane word from the dictionary.
-func (goblok *Goblok) Remove(word string) string { 
+func (goblok *Goblok) Remove(word string) string {
 	if word == "" {
 		return ""
-	} 
+	}
 	for i, w := range goblok.ProfaneWords {
 		if w == word {
 			goblok.ProfaneWords = append(goblok.ProfaneWords[:i], goblok.ProfaneWords[i+1:]...)
@@ -113,12 +113,12 @@ func (goblok *Goblok) Analyze(input string) (Analysis, error) {
 	for _, word := range goblok.ProfaneWords {
 		normalizedWord := normalize(strings.ToLower(word))
 		if strings.Contains(normalizedInput, normalizedWord) {
-			profane = append(profane, word) 
+			profane = append(profane, word)
 			for start := 0; start < len(normalizedInput); {
 				index := strings.Index(normalizedInput[start:], normalizedWord)
 				if index == -1 {
 					break
-				} 
+				}
 				actualIndex := findOriginalIndex(input, normalizedInput, start+index, normalizedWord)
 				if actualIndex != -1 {
 					locations = append(locations, Location{Word: word, Index: actualIndex})
